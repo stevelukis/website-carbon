@@ -1,8 +1,9 @@
-import { Axios } from "axios";
+import axios from "axios";
+import { Site } from "./entities.ts";
 
-const client = new Axios({ baseURL: "https://api.websitecarbon.com" });
+const client = axios.create({ baseURL: "https://api.websitecarbon.com" });
 
-export const retrieve = async () => {
-  const response = await client.get("/site?url=a.com");
+export const retrieveSite = async (url: string) => {
+  const response = await client.get<Site>("/site?url=" + url);
   return response.data;
 };
