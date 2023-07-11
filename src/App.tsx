@@ -18,6 +18,7 @@ function App() {
         bgcolor: "customBackground.primary",
         backgroundImage: `url(${BackgroundImage})`,
         backgroundRepeat: "no-repeat",
+        backgroundPositionX: "center",
         backgroundPositionY: "bottom",
         backgroundSize: {xs: "100% auto", md: "cover"},
       }}
