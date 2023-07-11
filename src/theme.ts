@@ -3,7 +3,10 @@ import {createTheme} from "@mui/material";
 /* eslint-disable @typescript-eslint/no-empty-interface */
 declare module "@mui/material/styles" {
   interface CustomPalette {
-    customBackground: {
+    homeBackground: {
+      primary: string;
+    };
+    paperBackground: {
       primary: string;
     };
   }
@@ -27,8 +30,11 @@ const theme = createTheme({
   palette: {
     primary: primaryColor,
     secondary: secondaryColor,
-    customBackground: {
+    homeBackground: {
       primary: "#f8f1d5",
+    },
+    paperBackground: {
+      primary: "#fffbea",
     },
     text: {
       primary: primaryColor.main,

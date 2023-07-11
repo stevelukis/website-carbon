@@ -6,7 +6,10 @@ interface CarbonDioxideAmount {
 interface Statistics {
   adjustedBytes: number;
   energy: number;
-  co2: CarbonDioxideAmount;
+  co2: {
+    grid: CarbonDioxideAmount;
+    renewable: CarbonDioxideAmount;
+  };
 }
 
 export interface Site {

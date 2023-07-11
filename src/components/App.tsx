@@ -8,26 +8,29 @@ import {
 } from "@mui/material";
 import BackgroundImage from "../assets/background.svg";
 import SearchIcon from "@mui/icons-material/Search";
+import PaperResult from "./PaperResult.tsx";
+import useSite from "../hooks/useSite.ts";
 
 function App() {
+  const { data } = useSite("a.com");
   return (
     <Box
       minHeight="100vh"
       width="100%"
       sx={{
-        bgcolor: "customBackground.primary",
+        bgcolor: "homeBackground.primary",
         backgroundImage: `url(${BackgroundImage})`,
         backgroundRepeat: "no-repeat",
         backgroundPositionX: "center",
         backgroundPositionY: "bottom",
-        backgroundSize: {xs: "100% auto", md: "cover"},
+        backgroundSize: { xs: "100% auto", md: "cover" },
       }}
     >
       <Container sx={{ height: "100vh" }} maxWidth="lg">
         <Stack
           maxWidth="600px"
           height="100%"
-          pt={{xs: 16, md: 0}}
+          pt={{ xs: 16, md: 0 }}
           direction="column"
           justifyContent={{ xs: "start", md: "center" }}
           gap={4}
@@ -54,6 +57,7 @@ function App() {
             This result is cached and will only test the same URL once every 24
             hours.
           </Typography>
+          {data && <PaperResult site={data} />}
         </Stack>
       </Container>
     </Box>
