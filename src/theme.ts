@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import {createTheme} from "@mui/material";
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
 declare module "@mui/material/styles" {
@@ -15,10 +15,29 @@ declare module "@mui/material/styles" {
   interface PaletteOptions extends CustomPalette {}
 }
 
+const primaryColor = {
+  main: "#50692d",
+};
+
+const secondaryColor = {
+  main: "#9ba66b",
+};
+
 const theme = createTheme({
   palette: {
+    primary: primaryColor,
+    secondary: secondaryColor,
     customBackground: {
       primary: "#f8f1d5",
+    },
+    text: {
+      primary: primaryColor.main,
+      secondary: secondaryColor.main,
+    },
+  },
+  typography: {
+    h1: {
+      fontFamily: "Caprasimo, cursive",
     },
   },
 });
