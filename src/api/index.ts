@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Site } from "./entities.ts";
+import { Site } from "../entities.ts";
 
 const client = axios.create({ baseURL: "https://api.websitecarbon.com" });
 

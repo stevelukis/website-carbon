@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import BackgroundImage from "./assets/background.svg";
+import BackgroundImage from "../assets/background.svg";
 import SearchIcon from "@mui/icons-material/Search";
 
 function App() {

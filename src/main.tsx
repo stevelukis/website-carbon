@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import App from "./App.tsx";
+import App from "./components/App.tsx";
 import { worker } from "./mocks/browser.ts";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { CssBaseline, ThemeProvider } from "@mui/material";
