@@ -21,7 +21,6 @@ const TextHighlightFail = styled(TextHighlight)(({ theme }) => ({
 }));
 
 const Result = ({ site }: Props) => {
-  const co2 = site.statistics.co2.grid.grams;
   return (
     <PaperBox>
       <Stack gap={3}>
@@ -37,35 +36,26 @@ const Result = ({ site }: Props) => {
         </Box>
         <Typography>
           This website is{" "}
-          {site.cleanerThan >= 0.5 ? (
+          {site.cleanerThan >= 50 ? (
             <TextHighlightSuccess>
-              cleaner than {site.cleanerThan * 100}%
+              cleaner than {site.cleanerThan}%
             </TextHighlightSuccess>
           ) : (
             <TextHighlightFail>
-              dirtier than {(1 - site.cleanerThan) * 100}%
+              dirtier than {100 - site.cleanerThan}%
             </TextHighlightFail>
           )}{" "}
           of web pages tested.
         </Typography>
         <Typography>
-          {co2 < 0.5 ? (
+          {site.co2 < 0.5 ? (
             <TextHighlightSuccess>
-              {co2.toFixed(2)}g of CO2
+              {site.co2.toFixed(2)}g of CO2
             </TextHighlightSuccess>
           ) : (
-            <TextHighlightFail>{co2.toFixed(2)}g of CO2</TextHighlightFail>
+            <TextHighlightFail>{site.co2.toFixed(2)}g of CO2</TextHighlightFail>
           )}{" "}
           is produced every time someone visits this web page.
-        </Typography>
-        <Typography>
-          This web page appears to be running on{" "}
-          {site.green ? (
-            <TextHighlightSuccess>sustainable energy</TextHighlightSuccess>
-          ) : (
-            <TextHighlightFail>unsustainable energy</TextHighlightFail>
-          )}
-          .
         </Typography>
       </Stack>
     </PaperBox>
