@@ -9,6 +9,10 @@ declare module "@mui/material/styles" {
     paperBackground: {
       primary: string;
     };
+    highlight: {
+      success: string;
+      fail: string;
+    };
   }
 
   // noinspection JSUnusedGlobalSymbols
@@ -35,6 +39,10 @@ const theme = createTheme({
     },
     paperBackground: {
       primary: "#fffbea",
+    },
+    highlight: {
+      success: "#e6ffc1",
+      fail: "#ffa1a1"
     },
     text: {
       primary: primaryColor.main,
