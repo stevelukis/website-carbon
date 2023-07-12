@@ -34,11 +34,12 @@ function App() {
     >
       <Container sx={{ minHeight: "100vh" }} maxWidth="lg">
         <Stack
-          height={{ xs: "auto", lg: "100%" }}
+          height={{ xs: "auto", lg: "100vh" }}
           direction={{ xs: "column", lg: "row" }}
         >
           <Stack
             maxWidth="600px"
+            height="100%"
             pt={{ xs: 10, md: 0 }}
             pr={{ xs: 0, lg: 5 }}
             direction="column"
