@@ -32,12 +32,15 @@ function App() {
         backgroundSize: { xs: "100% auto", md: "cover" },
       }}
     >
-      <Container sx={{ height: "100vh" }} maxWidth="lg">
-        <Stack height="100%" direction="row">
+      <Container sx={{ minHeight: "100vh" }} maxWidth="lg">
+        <Stack
+          height={{ xs: "auto", lg: "100%" }}
+          direction={{ xs: "column", lg: "row" }}
+        >
           <Stack
             maxWidth="600px"
-            pt={{ xs: 16, md: 0 }}
-            pr={5}
+            pt={{ xs: 10, md: 0 }}
+            pr={{ xs: 0, lg: 5 }}
             direction="column"
             justifyContent={{ xs: "start", md: "center" }}
             gap={4}
@@ -82,7 +85,11 @@ function App() {
               24 hours.
             </Typography>
           </Stack>
-          <Stack justifyContent="center" pl={5}>
+          <Stack
+            justifyContent="center"
+            pt={{ xs: 5, lg: 0 }}
+            pl={{ xs: 0, lg: 5 }}
+          >
             <Zoom in={data !== undefined && !isLoading}>
               <Box>{data && <Result site={data} />}</Box>
             </Zoom>
