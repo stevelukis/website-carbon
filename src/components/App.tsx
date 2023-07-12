@@ -11,12 +11,13 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import BackgroundImage from "../assets/background.svg";
-import PaperResult from "./PaperResult.tsx";
+import Result from "./Result.tsx";
 import useSite from "../hooks/useSite.ts";
+import Error from "./Error.tsx";
 
 function App() {
   const [url, setUrl] = useState("");
-  const { data, refetch, fetchStatus } = useSite(url);
+  const { data, refetch, fetchStatus, isError } = useSite(url);
   const isLoading = fetchStatus == "fetching";
   return (
     <Box
@@ -83,7 +84,12 @@ function App() {
           </Stack>
           <Stack justifyContent="center" pl={5}>
             <Zoom in={data !== undefined && !isLoading}>
-              <Box>{data && <PaperResult site={data} />}</Box>
+              <Box>{data && <Result site={data} />}</Box>
+            </Zoom>
+            <Zoom in={isError}>
+              <Box>
+                <Error />
+              </Box>
             </Zoom>
           </Stack>
         </Stack>

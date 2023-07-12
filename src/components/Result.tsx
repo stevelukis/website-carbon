@@ -1,5 +1,6 @@
 import { Box, Stack, styled, Typography } from "@mui/material";
 import { Site } from "../entities.ts";
+import PaperBox from "./PaperBox.ts";
 
 interface Props {
   site: Site;
@@ -19,17 +20,11 @@ const TextHighlightFail = styled(TextHighlight)(({ theme }) => ({
   backgroundColor: theme.palette.highlight.fail,
 }));
 
-const PaperResult = ({ site }: Props) => {
+const Result = ({ site }: Props) => {
   const co2 = site.statistics.co2.grid.grams;
   return (
-    <Box
-      width="500px"
-      sx={{
-        backgroundColor: `paperBackground.primary`,
-        borderRadius: "20px",
-      }}
-    >
-      <Stack p={4} gap={3}>
+    <PaperBox>
+      <Stack gap={3}>
         <Box>
           <Typography variant="h5" textAlign="center" fontWeight="bold">
             Carbon Result
@@ -73,8 +68,8 @@ const PaperResult = ({ site }: Props) => {
           .
         </Typography>
       </Stack>
-    </Box>
+    </PaperBox>
   );
 };
 
-export default PaperResult;
+export default Result;
