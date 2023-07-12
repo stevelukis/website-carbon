@@ -4,8 +4,9 @@ import { Site } from "../entities.ts";
 
 const useSite = (url: string) =>
   useQuery<Site>({
-    queryKey: ["site", url],
+    queryKey: ["site"],
     queryFn: () => retrieveSite(url),
+    enabled: false,
   });
 
 export default useSite;

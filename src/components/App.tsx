@@ -10,9 +10,11 @@ import BackgroundImage from "../assets/background.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import PaperResult from "./PaperResult.tsx";
 import useSite from "../hooks/useSite.ts";
+import { useState } from "react";
 
 function App() {
-  const { data } = useSite("a.com");
+  const [url, setUrl] = useState("");
+  const { data, refetch } = useSite(url);
   return (
     <Box
       minHeight="100vh"
@@ -38,17 +40,30 @@ function App() {
           <Typography variant="h1" fontSize={{ xs: 36, md: 52 }}>
             How is your website impacting the planet?
           </Typography>
-          <TextField
-            variant="standard"
-            label="URL"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              // noinspection JSIgnoredPromiseFromCall
+              refetch();
             }}
-          />
+          >
+            <TextField
+              variant="standard"
+              fullWidth={true}
+              label="URL"
+              value={url}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              onChange={(e) => {
+                setUrl(e.target.value);
+              }}
+            />
+          </form>
           <Typography maxWidth="400px">
             This app will do a test in real time to calculate the carbon
             emissions generated per page view.
