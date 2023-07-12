@@ -23,7 +23,7 @@ const PaperResult = ({ site }: Props) => {
   const co2 = site.statistics.co2.grid.grams;
   return (
     <Box
-      maxWidth="500px"
+      width="500px"
       sx={{
         backgroundColor: `paperBackground.primary`,
         borderRadius: "20px",

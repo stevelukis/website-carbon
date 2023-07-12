@@ -7,6 +7,7 @@ export const handlers = [
 
     if (url == "a.com") {
       return res(
+        context.delay(1000),
         context.status(200),
         context.json({
           url: "https://www.websitecarbon.com/website/websitecarbon-com/",
