@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   CircularProgress,
@@ -19,10 +19,6 @@ function App() {
   const [url, setUrl] = useState("");
   const { data, refetch, fetchStatus, isError } = useSite(url);
   const isLoading = fetchStatus == "fetching";
-
-  useEffect(() => {
-    console.log("data", data);
-  }, [data]);
 
   return (
     <Box
